@@ -3,8 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import TodoList from "./TodoList.js";
 import { v4 as uuidv4 } from "uuid";
 
-
-import {Task} from "./Task.js"
+import { Task } from "./Task.js";
 
 const LOCAL_STORAGE_KEY = "todoApp";
 function App() {
@@ -25,35 +24,42 @@ function App() {
 
   const handleChange = (event) => {
     setNewTask(event.target.value);
-    console.log(newTask)
   };
   const addTask = () => {
     // const newTodoList = [...todoLists, newTask];
     // setTodoLists(newTodoList);
-    const task={
-      id: todoLists.length===0? 1: todoLists[todoLists.length-1].id+1, 
-      taskName: newTask
-    }
-    console.log('Add Task clicked')
-    console.log(newTask)
-    console.log(task)
-    console.log(todoLists)
-  setTodoLists([...todoLists, task])
+    const task = {
+      id: todoLists.length === 0 ? 1 : todoLists[todoLists.length - 1].id + 1,
+      taskName: newTask,
+      completed: false,
+    };
+    console.log("Add Task clicked");
+    console.log("newTask :", newTask);
+    console.log("task :", task);
+    console.log("todoLists :", todoLists);
+    setTodoLists([...todoLists, task]);
   };
   const deleteTask = (id) => {
-    // const newTodoList = 
-      // if (task=== taskName) {
-      //   return false;
-      // } else {
-      //   return true;
-      // }
-     setTodoLists(todoLists.filter((task) => task.id!==id));
+    // const newTodoList =
+    // if (task=== taskName) {
+    //   return false;
+    // } else {
+    //   return true;
+    // }
+    setTodoLists(todoLists.filter((task) => task.id !== id));
   };
-
-
-
-
-
+  const completeTask = (id) => {
+    console.log("complete task clicked");
+    setTodoLists(
+      todoLists.map((task) => {
+        if (task.id === id) {
+          return { ...task, completed: true };
+        } else {
+          return task;
+        }
+      })
+    );
+  };
 
   //WEB dev simplified
   const [todos, setTodos] = useState([]); //object destructure
@@ -112,8 +118,7 @@ function App() {
       </div>
 
       <div>
-
-        <div className="color"> 
+        <div className="color">
           <button
             onClick={() => {
               setTextColor(textColor === "green" ? "red" : "green");
@@ -143,13 +148,22 @@ function App() {
         <button onClick={addTask}>Add Task</button>
       </div>
       <div className="list">
-        {todoLists?.map((task) => {
-          return 
-          (<Task taskName={task.taskName} id={task.id} deleteTask={deleteTask}/>)
+        {todoLists.map((task) => {
+          console.log("mapTask :", task);
+          return (
+            <Task
+              taskName={task.taskName}
+              id={task.id}
+              completed={task.completed}
+              deleteTask={deleteTask}
+              completeTask={completeTask}
+            />
+          );
         })}
+        {/* {todoLists?.map((task) => (
+          <Task taskName={task.taskName} id={task.id} deleteTask={deleteTask} />
+        ))} */}
       </div>
-
-
     </div>
   );
 }

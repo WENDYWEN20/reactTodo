@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import IndexDay5 from './day5/indexDay5.jsx'
+import {CtrlComp} from './day5HM/CtrlComp.jsx'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <CtrlComp />
+    {/* <IndexDay5 /> */}
   </React.StrictMode>
 );
 

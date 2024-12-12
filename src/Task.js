@@ -1,8 +1,10 @@
-export const Task = (props) => {
-  return
- ( <div>
-    <h2>{props.taskName}</h2>
-    <button>Complete</button>
+import React from 'react'
+
+export function Task(props){
+  return (<div className='task' style={{backgroundColor: props.completed? "green": "white"}}>
+    <h1>{props.taskName}</h1>
+    <button onClick={()=>props.completeTask(props.id)}>Complete</button>
     <button onClick={()=>props.deleteTask(props.id)}>X</button>
   </div>)
+
 };
