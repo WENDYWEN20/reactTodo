@@ -7,11 +7,14 @@ import {CtrlComp} from './day5HM/CtrlComp.jsx'
 import SelectAll from './day5HM/SelectAll.jsx'
 import reportWebVitals from './reportWebVitals';
 import EventList from './day7/EventList.jsx'
+import HOC from './classComponentHOC/index.jsx';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <EventList />
+    <HOC />
+    {/* <EventList /> */}
     {/* <CtrlComp /> */}
     {/* <SelectAll/> */}
     {/* <IndexDay5 /> */}
