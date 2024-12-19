@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import withFetch from './withFetch'
+import withBorder from './withBorder';
 class CommentsHOC extends Component{
   
   render(){
@@ -23,7 +24,8 @@ class CommentsHOC extends Component{
 
 }
 
-export default withFetch(
-  CommentsHOC,
-  "https://jsonplaceholder.typicode.com/comments"
-)
+
+
+export default withBorder( withFetch(
+    CommentsHOC, "https://jsonplaceholder.typicode.com/comments"),"green"
+);

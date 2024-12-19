@@ -5,7 +5,7 @@ export default function withBorder(OldComponent, color) {
         render() {
           return (
             <div style={{border:`2px solid ${color}`, padding: '5px'}}>
-            <OldComponent />
+            <OldComponent {...this.props}/>
             </div>
           )
         }

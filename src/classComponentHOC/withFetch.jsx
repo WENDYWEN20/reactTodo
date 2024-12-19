@@ -14,7 +14,7 @@ export default function withFetch(OldComponent, url) {
       try {
         const res = await fetch(url);
         const data = await res.json();
-        this.setState({data});
+        this.setState({data: data}); //taking as object
       } catch (error) {
         this.setState({ error: error.message });
       } finally {
