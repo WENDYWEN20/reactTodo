@@ -18,7 +18,7 @@ export default function useDisclosure(
         this.setState({ opened: false }, callback.onClose);
       },
       toggle: () => {
-        this.setState((prev) => ({ opened: !prev.opened }));
+        this.setState((prev) =>{return { opened: !prev.opened }});
       },
       //open() sets opened to true, after the state is updated, it calls callback.onOpen if provided,
       //toggle(): Toggles the state. If it’s currently open, toggle will close it; if it’s closed, toggle will open it.

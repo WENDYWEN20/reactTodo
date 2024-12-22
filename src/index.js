@@ -8,12 +8,15 @@ import SelectAll from './day5HM/SelectAll.jsx'
 import reportWebVitals from './reportWebVitals';
 import EventList from './day7/EventList.jsx'
 import HOC from './classComponentHOC/index.jsx';
-
+import ContextTodo from './useContext/ContextEvent'
+import FunctionTheme from './useContext/ThemeContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HOC />
+    <FunctionTheme/>
+    {/* <ContextTodo /> */}
+    {/* <HOC /> */}
     {/* <EventList /> */}
     {/* <CtrlComp /> */}
     {/* <SelectAll/> */}
